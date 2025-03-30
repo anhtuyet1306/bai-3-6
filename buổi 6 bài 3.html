@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: black;
+            text-align: center;
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: black;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            font-size: 20px;
+            z-index: 1000;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .overlay a {
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover {
+            color: #ffcc00;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 35px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 80%;
+            max-width: 1200px;
+            margin: 80px auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .portfolio img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay span {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="menu-button" onclick="toggleMenu()">☰ MENU</button>
+
+    <div class="overlay" id="menuOverlay">
+        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Team</a>
+        <a href="#">Services</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <a href="#">Buy Now!</a>
+        <a href="#">Search ...</a>
+    </div>
+
+    <div class="portfolio">
+        <div class="portfolio-item">
+            <img src="https://mediawinwin.vn/cosy/admin/upload/images/%E1%BA%A2nh%20N%E1%BB%99i%20Th%E1%BA%A5t/%E1%BA%A3nh%20n%E1%BB%99i%20th%E1%BA%A5t%2014.jpg" alt="Nội Thất">
+            <div class="portfolio-overlay"><span>Nội Thất</span></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://amia.vn/wp-content/uploads/2021/12/ban-tra-sofa-kieu-moi-go-cong-nghiep-mdf-amia-ban-100.jpg" alt="Bàn">
+            <div class="portfolio-overlay"><span>Bàn</span></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://qbuilding.vn/wp-content/uploads/2023/09/decor-phong-ngu.jpg" alt="Đèn ngủ">
+            <div class="portfolio-overlay"><span>Đèn Ngủ</span></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://i.pinimg.com/736x/e3/e9/a9/e3e9a92694ce8446305a53fe07de9f7c.jpg" alt="Design 4">
+            <div class="portfolio-overlay"><span>Thiết Kế 4</span></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://i.pinimg.com/736x/6b/37/d8/6b37d893ecf063c0428102d8f8e90630.jpg" alt="Design 5">
+            <div class="portfolio-overlay"><span>Thiết Kế 5</span></div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://i.pinimg.com/736x/6e/2f/68/6e2f68ce03e89e58c2b5918eac8bc043.jpg" alt="Design 6">
+            <div class="portfolio-overlay"><span>Thiết Kế 6</span></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menuOverlay").classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
+
